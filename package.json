@@ -1,6 +1,6 @@
 {
   "name": "simple-gacha-factory",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Pick some items from the input by using a simple random model.",
   "main": "index.js",
   "files": [
