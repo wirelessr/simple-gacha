@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "Pick some items from the input by using a simple random model.",
   "main": "index.js",
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "scripts": {
-    "test": "mocha test/*"
+    "test": "mocha test/*",
+    "coverage": "nyc --reporter=lcov npm test"
   },
   "repository": {
     "type": "git",
@@ -22,7 +25,8 @@
   "homepage": "https://github.com/wirelessr/simple-gacha#readme",
   "devDependencies": {
     "chai": "^4.3.4",
-    "mocha": "^9.0.2"
+    "mocha": "^9.0.2",
+    "nyc": "^15.1.0"
   },
   "dependencies": {
     "joi": "^17.4.0"
