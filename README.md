@@ -1,5 +1,5 @@
 # simple-gacha-factory
-
+![ci](https://github.com/wirelessr/simple-gacha/actions/workflows/node.js.yml/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/wirelessr/simple-gacha/badge.svg?branch=main)](https://coveralls.io/github/wirelessr/simple-gacha?branch=main)
 
 This is a flexible factory that can pick out random objects by serveral simple algorithms.  
