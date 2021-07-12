@@ -1,3 +1,4 @@
+'use strict'
 const Joi = require("joi");
 
 class Rand {
@@ -16,10 +17,7 @@ class AmountRand extends Rand {
     this.validate();
   }
   validate() {
-    const itemSchema = Joi.array().items(Joi.object({
-      k: Joi.string().required(),
-      v: Joi.number().integer().positive().required()
-    }));
+    const itemSchema = Joi.object().pattern(Joi.string().min(1), Joi.number().integer().positive());
     const {error} = itemSchema.validate(this.data);
     if (error) {
       throw new Error("Input is invalid");
@@ -27,11 +25,11 @@ class AmountRand extends Rand {
   }
   rand(t) {
     let allItem = [];
-    this.data.forEach(obj => {
-      for (let i = 0; i < obj.v; i++) {
-        allItem.push(obj.k);
+    for (const k in this.data) {
+      for (let i = 0; i < this.data[k]; i++) {
+        allItem.push(k);
       }
-    });
+    }
 
     if (t > allItem.length) {
         throw new Error("Length is overflow");
@@ -54,30 +52,30 @@ class ProabilityRand extends Rand {
     this.validate();
   }
   validate() {
-    const itemSchema = Joi.array().items(Joi.object({
-      k: Joi.string().required(),
-      v: Joi.number().positive().required()
-    }));
+    const itemSchema = Joi.object().pattern(Joi.string().min(1), Joi.number().positive());
     const {error} = itemSchema.validate(this.data);
     if (error) {
       throw new Error("Input is invalid");
     }
 
-    const sum = this.data.map(e => e.v).reduce((a, b) => a + b);
+    let sum = 0;
+    for (const k in this.data) {
+      sum += this.data[k];
+    }
     if (sum > 100) {
       throw new Error("Sum is over 100%");
     }
     if (sum < 100) {
-      this.data.push({"k": null, "v": 100 - sum});
+      this.data[""] = 100 - sum;
     }
   }
   rand(t, minUnit = 0.01) {
     let allItem = [];
-    this.data.forEach(obj => {
-      for (let i = 0; i < Math.floor(obj.v / minUnit); i++) {
-        allItem.push(obj.k);
+    for (const k in this.data) {
+      for (let i = 0; i < Math.floor(this.data[k] / minUnit); i++) {
+        allItem.push(k);
       }
-    });
+    }
 
     let result = [];
     for (let i = 0; i < t; i++) {
