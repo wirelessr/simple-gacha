@@ -26,9 +26,9 @@ const result = amount.rand(3);
 
 ## Release Note
 
-v1.0.0: Release two method: amount and probability
-v1.0.2: Release README
-v2.0.0: Simplify input
+- v1.0.0: Release two method: amount and probability
+- v1.0.2: Release README
+- v2.0.0: Simplify input
 
 ## Contributing
 Contributes are very welcome.
