@@ -14,13 +14,19 @@ Basic usages are already included in the test cases:
 ```javascript
 const factory = new rand.RandFactory();
 
-const amount = factory.createRand("amount", [
-  {"v": 1, "k": "hi"},
-  {"v": 3, "k": "hello"}
-]);
+const amount = factory.createRand("amount", {
+  "hi": 1,
+  "hello": 3,
+});
 
 const result = amount.rand(3);
 ```
+
+## Release Note
+
+v1.0.0: Release two method: amount and probability
+v1.0.2: Release README
+v2.0.0: Simplify input
 
 ## Contributing
 Contributes are very welcome.
