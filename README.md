@@ -21,7 +21,15 @@ const amount = factory.createRand("amount", {
   "hello": 3,
 });
 
-const result = amount.rand(3);
+const r1 = amount.rand(3);
+
+// hi: 10%, hello: 30%, null: 60%
+const prob = factory.createRand("probability", {
+  "hi": 10,
+  "hello": 30,
+});
+
+const r2 = prob.rand(3);
 ```
 
 ## Release Note
