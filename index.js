@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 const Joi = require("joi");
 
 class Rand {
@@ -17,8 +17,11 @@ class AmountRand extends Rand {
     this.validate();
   }
   validate() {
-    const itemSchema = Joi.object().pattern(Joi.string().min(1), Joi.number().integer().positive());
-    const {error} = itemSchema.validate(this.data);
+    const itemSchema = Joi.object().pattern(
+      Joi.string().min(1),
+      Joi.number().integer().positive()
+    );
+    const { error } = itemSchema.validate(this.data);
     if (error) {
       throw new Error("Input is invalid");
     }
@@ -32,7 +35,7 @@ class AmountRand extends Rand {
     }
 
     if (t > allItem.length) {
-        throw new Error("Length is overflow");
+      throw new Error("Length is overflow");
     }
 
     let result = [];
@@ -52,8 +55,11 @@ class ProabilityRand extends Rand {
     this.validate();
   }
   validate() {
-    const itemSchema = Joi.object().pattern(Joi.string().min(1), Joi.number().positive());
-    const {error} = itemSchema.validate(this.data);
+    const itemSchema = Joi.object().pattern(
+      Joi.string().min(1),
+      Joi.number().positive()
+    );
+    const { error } = itemSchema.validate(this.data);
     if (error) {
       throw new Error("Input is invalid");
     }
@@ -88,8 +94,8 @@ class ProabilityRand extends Rand {
 
 class RandFactory {
   createRand(t, data) {
-    if (t == 'amount') return new AmountRand(data);
-    if (t == 'probability') return new ProabilityRand(data);
+    if (t == "amount") return new AmountRand(data);
+    if (t == "probability") return new ProabilityRand(data);
   }
 }
 

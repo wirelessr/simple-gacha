@@ -3,6 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/wirelessr/simple-gacha/badge.svg?branch=main)](https://coveralls.io/github/wirelessr/simple-gacha?branch=main)
 
 [![NPM](https://nodei.co/npm/simple-gacha-factory.png)](https://npmjs.org/package/simple-gacha-factory)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 This is a flexible factory that can pick out random objects by serveral simple algorithms.  
 There are two methods on v1.0.0:
